@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale-1.8">
+    <title>Paper plane</title>
+</head>
+<body>
+    <canvas class = "webgl"></canvas>
+    <script type="module" src="./model.js"></script>
+    <input type="text" id="my-input">
+    <div id="gray-rectangle"><b>W</b> - move forword in the direction that the paper plane is facing.
+        <br><b>Left click and mouse drag</b> - adjust the direction of the paper plane.
+        <br><b>Space</b> - stop the paper plane and move the camera independently of it.
+        <br><b>Esc</b> - close/reopen this informative tab.</div>
+
+    <style>
+        #gray-rectangle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 300px;
+            height: 125px;
+            background-color: rgba(199, 199, 199, 0.5);
+            display: block;
+          }
+    </style>
+
+<script>
+    var isRectangleVisible = false;
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        if (isRectangleVisible) {
+          document.getElementById('gray-rectangle').style.display = 'block';
+          isRectangleVisible = false;
+        } else {
+          document.getElementById('gray-rectangle').style.display = 'none';
+          isRectangleVisible = true;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
